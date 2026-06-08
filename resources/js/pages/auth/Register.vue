@@ -23,7 +23,8 @@ defineOptions({
 </script>
 
 <template>
-    <Head title="Register" />
+    <div class="bg-black">
+        <Head title="Register" />
 
     <Form
         v-bind="store.form()"
@@ -46,6 +47,8 @@ defineOptions({
                 />
                 <InputError :message="errors.name" />
             </div>
+
+        
 
             <div class="grid gap-2">
                 <Label for="email">Email address</Label>
@@ -111,4 +114,5 @@ defineOptions({
             >
         </div>
     </Form>
+    </div>
 </template>
