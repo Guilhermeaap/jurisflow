@@ -1,14 +1,23 @@
-<script setup lang="ts">
-import AppLayout from '@/layouts/app/AppSidebarLayout.vue';
-import type { BreadcrumbItem } from '@/types';
+<script setup>
+import AppSidebarHeader from "/resources/js/components/AppSidebarHeader.vue"
+import AppSidebar from '/resources/js/components/AppSidebar.vue'
+import {ref} from 'vue'
 
-const { breadcrumbs = [] } = defineProps<{
-    breadcrumbs?: BreadcrumbItem[];
-}>();
+// Variáveis 
+const sidebar = ref(false)
 </script>
 
 <template>
-    <AppLayout :breadcrumbs="breadcrumbs">
-        <slot />
-    </AppLayout>
+    <AppSidebarHeader
+    @toggle-sidebar = "sidebar = !sidebar"
+    >
+        
+    </AppSidebarHeader>
+
+    
+      <div
+        class="bg-[#7A1024] h-screen transition-all duration-200"
+        :class="sidebar ? 'w-64':'w-0 overflow-hidden'">
+            <AppSidebar></AppSidebar>
+    </div>
 </template>
