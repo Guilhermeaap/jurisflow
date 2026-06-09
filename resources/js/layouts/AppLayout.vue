@@ -13,7 +13,6 @@ const sidebar = ref(false)
     >
         
     </AppSidebarHeader>
-    <div class="h-10 bg-white">sss</div>
     
       <div
         class="bg-[#7A1024] h-[95vh] transition-all duration-200"
