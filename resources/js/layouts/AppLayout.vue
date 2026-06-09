@@ -13,10 +13,10 @@ const sidebar = ref(false)
     >
         
     </AppSidebarHeader>
-
+    <div class="h-10 bg-white">sss</div>
     
       <div
-        class="bg-[#7A1024] h-screen transition-all duration-200"
+        class="bg-[#7A1024] h-[95vh] transition-all duration-200"
         :class="sidebar ? 'w-64':'w-0 overflow-hidden'">
             <AppSidebar></AppSidebar>
     </div>
