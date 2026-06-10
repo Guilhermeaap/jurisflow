@@ -23,7 +23,7 @@ defineOptions({
 </script>
 
 <template>
-    <div class="bg-black">
+    <div class="text-secondary">
         <Head title="Register" />
 
     <Form
@@ -94,7 +94,7 @@ defineOptions({
 
             <Button
                 type="submit"
-                class="mt-2 w-full"
+                class="mt-4 w-full hover:bg-secondary-hover cursor-pointer transition-all duration-300 shadow-md drop-shadow-md"
                 tabindex="5"
                 :disabled="processing"
                 data-test="register-user-button"
@@ -104,11 +104,11 @@ defineOptions({
             </Button>
         </div>
 
-        <div class="text-center text-sm text-muted-foreground">
+        <div class="text-center text-sm text-secondary">
             Already have an account?
             <TextLink
                 :href="login()"
-                class="underline underline-offset-4"
+                class="underline underline-offset-4 text-secondary hover:text-secondary-hover"
                 :tabindex="6"
                 >Log in</TextLink
             >

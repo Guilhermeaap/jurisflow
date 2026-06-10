@@ -36,13 +36,12 @@ defineProps<{
         {{ status }}
     </div>
 
-    <PasskeyVerify />
 
     <Form
         v-bind="store.form()"
         :reset-on-success="['password']"
         v-slot="{ errors, processing }"
-        class="flex flex-col gap-6"
+        class="flex flex-col gap-6 text-secondary"
     >
         <div class="grid gap-6">
             <div class="grid gap-2">
@@ -60,13 +59,13 @@ defineProps<{
                 <InputError :message="errors.email" />
             </div>
 
-            <div class="grid gap-2">
+            <div class="grid gap-2 text-sec">
                 <div class="flex items-center justify-between">
                     <Label for="password">Password</Label>
                     <TextLink
                         v-if="canResetPassword"
                         :href="request()"
-                        class="text-sm"
+                        class="text-sm text-secondary hover:text-secondary-hover"
                         :tabindex="5"
                     >
                         Forgot your password?
@@ -92,19 +91,20 @@ defineProps<{
 
             <Button
                 type="submit"
-                class="mt-4 w-full"
+                class="mt-4 w-full hover:bg-secondary-hover cursor-pointer transition-all duration-300 shadow-md drop-shadow-md"
                 :tabindex="4"
                 :disabled="processing"
                 data-test="login-button"
+                
             >
                 <Spinner v-if="processing" />
                 Log in
             </Button>
         </div>
 
-        <div class="text-center text-sm text-muted-foreground">
+        <div class="text-center text-sm text-secondary">
             Don't have an account?
-            <TextLink :href="register()" :tabindex="5">Sign up</TextLink>
+            <TextLink class="text-secondary hover:text-secondary-hover" :href="register()" :tabindex="5">Sign up</TextLink>
         </div>
     </Form>
 </template>
