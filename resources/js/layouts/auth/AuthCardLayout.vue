@@ -10,10 +10,7 @@ import {
 } from '@/components/ui/card';
 import { home } from '@/routes';
 
-defineProps<{
-    title?: string;
-    description?: string;
-}>();
+
 </script>
 
 <template>

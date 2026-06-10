@@ -40,10 +40,10 @@ const { verify, isLoading, error, isSupported } = usePasskeyVerify({
         <div class="grid gap-2">
             <Button
                 type="button"
-                variant="outline"
-                class="w-full"
+                class="w-full bg-secondary text-primary hover:text-secondary-hover hover:cursor-pointer"
                 @click="verify"
                 :disabled="isLoading"
+                
             >
                 <Spinner v-if="isLoading" />
                 <KeyRound v-else class="h-4 w-4" />
