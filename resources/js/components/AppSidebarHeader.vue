@@ -45,7 +45,9 @@ function getSiglaNome(nome) {
             </a>
         </div>
         <div class="mr-2 flex w-full items-center justify-end">
-            {{ siglaNome }}
+            <div class="bg-slate-900 border-2 border-secondary-hover h-10 w-10 m-2 rounded-lg flex justify-center">
+                <span class="font-extrabold text-xl text-primary flex justify-center items-center w-full">{{ siglaNome }}</span>
+            </div>
             <span class="mr-4 text-secondary">{{ user.name }}</span>
             <Link
                 class="pi pi-sign-out cursor-pointer rounded-lg  p-2 text-secondary hover:text-secondary-hover"
