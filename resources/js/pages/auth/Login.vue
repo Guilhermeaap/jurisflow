@@ -29,13 +29,21 @@ defineProps<{
 <template>
     <Head title="Log in" />
 
+    <div class="mb-4">
+        <h1 class="text-4xl font-bold tracking-tight text-[#D4AF37]">
+            Bem-vindo ao JurisFlow
+        </h1>
+
+        <p class="mt-2 text-sm leading-relaxed text-slate-300">
+            Acesse sua conta Gerencie seus processos com eficiência
+        </p>
+    </div>
     <div
         v-if="status"
         class="mb-4 text-center text-sm font-medium text-green-600"
     >
         {{ status }}
     </div>
-
 
     <Form
         v-bind="store.form()"
@@ -59,7 +67,7 @@ defineProps<{
                 <InputError :message="errors.email" />
             </div>
 
-            <div class="grid gap-2 text-sec">
+            <div class="text-sec grid gap-2">
                 <div class="flex items-center justify-between">
                     <Label for="password">Password</Label>
                     <TextLink
@@ -91,11 +99,10 @@ defineProps<{
 
             <Button
                 type="submit"
-                class="mt-4 w-full hover:bg-secondary-hover cursor-pointer transition-all duration-300 shadow-md drop-shadow-md"
+                class="mt-4 w-full cursor-pointer shadow-md drop-shadow-md transition-all duration-300 hover:bg-secondary-hover"
                 :tabindex="4"
                 :disabled="processing"
                 data-test="login-button"
-                
             >
                 <Spinner v-if="processing" />
                 Log in
@@ -104,7 +111,12 @@ defineProps<{
 
         <div class="text-center text-sm text-secondary">
             Don't have an account?
-            <TextLink class="text-secondary hover:text-secondary-hover" :href="register()" :tabindex="5">Sign up</TextLink>
+            <TextLink
+                class="text-secondary hover:text-secondary-hover"
+                :href="register()"
+                :tabindex="5"
+                >Sign up</TextLink
+            >
         </div>
     </Form>
 </template>

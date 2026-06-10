@@ -4,13 +4,13 @@ import AuthLayout from '@/layouts/auth/AuthSimpleLayout.vue';
 </script>
 
 <template>
-    <div class="flex w-full items-center">
+    <div class="flex w-full items-center h-screen">
 
             <AuthLayout>
                 <slot />
             </AuthLayout>
 
-        <div class="flex h-screen w-full justify-center">
+        <div class="flex h-[50vh] w-full justify-center">
             <AppLogoIcon />
         </div>
     </div>
