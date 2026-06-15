@@ -107,6 +107,15 @@ function logout() {
 }
 
 .p-menu-item-content:focus {
-    background: #d4af37 !important;
+    background-color: #d4af37 !important;
 }
+
+.p-menu-item-icon {
+    color:#ffffff !important;
+}
+
+p.menu-separator {
+    background-color: #d4af37 !important;
+}
+
 </style>
