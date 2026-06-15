@@ -1,6 +1,6 @@
 <script setup>
-import axios from 'axios';
 import { ref } from 'vue';
+import { router } from '@inertiajs/vue3';
 
 const menus = ref([
     {
@@ -15,10 +15,8 @@ const menus = ref([
     },
 ]);
 
-async function access(link){
-    await axios.get(link)
-
-    console.log(link)
+function navigate(link) {
+    router.visit(link);
 }
 </script>
 
@@ -29,7 +27,7 @@ async function access(link){
             class="cursor-pointer px-3 py-3 text-secondary hover:bg-secondary-hover"
         >
             <div
-                @click="access(menu.link)"
+                @click="navigate(menu.link)"
             >
                 <i :class="menu.icon" class="px-4" />
                 <span>{{ menu.label }}</span>
