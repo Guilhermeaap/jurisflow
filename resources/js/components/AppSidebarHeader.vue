@@ -1,18 +1,34 @@
 <script setup>
 // Imports
-import { logout } from '@/routes';
-import { Link } from '@inertiajs/vue3';
 import { defineEmits, onMounted, ref } from 'vue';
-import { usePage } from '@inertiajs/vue3';
+import { router, usePage } from '@inertiajs/vue3';
+import Menu from 'primevue/menu';
 // Emits
 const emit = defineEmits(['toggle-sidebar']);
 
 // Variáveis
 const page = usePage();
-const user = page.props.auth.user;
 const siglaNome = ref('');
 const userAbreviado = ref('');
-const openMenuProfile = ref(false);
+const menu = ref();
+const items = [
+    {
+        label: 'Meu Perfil',
+        icon: 'pi pi-user',
+    },
+    {
+        label: 'Configurações',
+        icon: 'pi pi-cog',
+    },
+    {
+        separator: true,
+    },
+    {
+        label: 'Sair',
+        icon: 'pi pi-sign-out',
+        command: () => logout(),
+    },
+];
 
 onMounted(() => {
     getSiglaNome(page.props.auth.user.name);
@@ -33,6 +49,10 @@ function getPrimeiroUltimoNome() {
     const lastLetter = parts.at(-1);
 
     return (userAbreviado.value = firstLetter + ' ' + lastLetter);
+}
+
+function logout() {
+    router.post('logout');
 }
 </script>
 
@@ -55,15 +75,14 @@ function getPrimeiroUltimoNome() {
                 <span class="font-bold text-secondary">J U R I S F L O W</span>
             </a>
         </div>
-        <div class="mr-2 w-full flex">
-            <div class=" flex w-full justify-end">
+        <div class="mr-2 flex w-full">
+            <div class="flex w-full justify-end">
                 <div
-                    class=" flex cursor-pointer items-center text-secondary hover:text-secondary-hover"
-                    @click="openMenuProfile = !openMenuProfile"
+                    class="flex cursor-pointer items-center text-secondary hover:text-secondary-hover"
+                    @click="menu.toggle($event)"
                 >
                     <div
                         class="m-2 flex h-10 w-10 justify-center rounded-lg bg-[#1F2937]"
-                        @click="openMenu = !openMenu"
                     >
                         <span
                             class="flex w-full items-center justify-center text-xl font-extrabold text-[#F4D56B]"
@@ -73,13 +92,21 @@ function getPrimeiroUltimoNome() {
                     <span class="mr-4">{{ userAbreviado }}</span>
                 </div>
             </div>
-
-                <Link
-                    class="pi pi-sign-out cursor-pointer rounded-lg p-2 text-secondary hover:text-secondary-hover"
-                    title="Sair"
-                    :href="logout()"
-                ></Link>
-            </div>
         </div>
     </div>
+    <Menu
+        ref="menu"
+        :model="items"
+        popup
+        class="!bg-primary !text-secondary"
+    ></Menu>
 </template>
+<style>
+.p-menu-item-content:hover {
+    background-color: #d4af37 !important;
+}
+
+.p-menu-item-content:focus {
+    background: #d4af37 !important;
+}
+</style>

@@ -4,7 +4,10 @@ import AppLayout from '@/layouts/AppLayout.vue';
 import AuthLayout from '@/layouts/AuthLayout.vue';
 import SettingsLayout from '@/layouts/settings/Layout.vue';
 import { initializeFlashToast } from '@/lib/flashToast';
-import 'primeicons/primeicons.css'
+import 'primeicons/primeicons.css';
+import { createApp, h } from 'vue';
+import PrimeVue from 'primevue/config';
+import Aura from '@primeuix/themes/aura';
 
 const appName = import.meta.env.VITE_APP_NAME || 'Laravel';
 
@@ -21,6 +24,21 @@ createInertiaApp({
             default:
                 return AppLayout;
         }
+    },
+    setup({ el, App, props, plugin }) {
+        const app = createApp({
+            render: () => h(App, props),
+        });
+
+        app.use(plugin);
+        app.use(PrimeVue, {
+            theme: {
+                preset: Aura,
+            },
+        });
+
+
+        app.mount(el);
     },
     progress: {
         color: '#4B5563',
