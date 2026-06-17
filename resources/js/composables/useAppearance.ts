@@ -15,7 +15,7 @@ export function updateTheme(value: Appearance): void {
         return;
     }
 
-    if (value === 'system') {
+    if (value === 'dark') {
         const mediaQueryList = window.matchMedia(
             '(prefers-color-scheme: dark)',
         );
@@ -83,7 +83,7 @@ export function initializeTheme(): void {
     mediaQuery()?.addEventListener('change', handleSystemThemeChange);
 }
 
-const appearance = ref<Appearance>('system');
+const appearance = ref<Appearance>('light');
 
 export function useAppearance(): UseAppearanceReturn {
     onMounted(() => {

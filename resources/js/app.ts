@@ -34,6 +34,9 @@ createInertiaApp({
         app.use(PrimeVue, {
             theme: {
                 preset: Aura,
+                options:{
+                    darkModeSelector: false
+                },
             },
         });
 
@@ -45,8 +48,6 @@ createInertiaApp({
     },
 });
 
-// This will set light / dark mode on page load...
-initializeTheme();
 
 // This will listen for flash toast data from the server...
 initializeFlashToast();

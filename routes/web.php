@@ -12,7 +12,7 @@ Route::get('/', function(){
 
 Route::middleware(['auth', 'verified'])->group(function () {
     Route::inertia('dashboard', 'Dashboard')->name('dashboard');
-    Route::inertia('clientes', 'Clientes')->name('clientes');
+    Route::inertia('clientes', 'Clientes/Index')->name('clientes');
 });
 
 require __DIR__.'/settings.php';

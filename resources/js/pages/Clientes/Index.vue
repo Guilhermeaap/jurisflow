@@ -1,22 +1,13 @@
 <script setup>
+import * as clientes from './clientes.js';
 import { Head } from '@inertiajs/vue3';
 import Button from 'primevue/button';
 import DataTable from 'primevue/datatable';
 import Dialog from 'primevue/dialog';
-import { ref } from 'vue';
-
-// Variables
-const openCreateClients = ref(false);
-const menus = ref([
-    { label: 'Dados Básicos', value: 'dados' },
-    { label: 'Contato', value: 'contato' },
-    { label: 'Endereço', value: 'endereco' },
-    { label: 'Informações Jurídicas', value: 'informacao' },
-    { label: 'Processos', value: 'processos' },
-]);
+import DadosBasicos from './partials/dadosBasicos.vue';
 
 function setAba(aba){
-    console.log(aba)
+    clientes.aba.value = aba
 }
 </script>
 
@@ -40,15 +31,15 @@ function setAba(aba){
                 icon="pi pi-plus"
                 severity="info"
                 outlined
-                @click="openCreateClients = true"
+                @click="clientes.openCreateClients.value = true"
             />
         </div>
 
         <!-- Tabela -->
         <DataTable class="mt-4"> </DataTable>
-        {{ openCreateClients }}
+        {{ clientes.openCreateClients.value }}
     </div>
-    <Dialog v-model:visible="openCreateClients" modal :closable="false">
+    <Dialog v-model:visible="clientes.openCreateClients.value" modal :closable="false">
         <template #container>
             <div class="w-full bg-white text-black rounded-lg overflow-hidden">
                 <!-- header -->
@@ -56,20 +47,21 @@ function setAba(aba){
                     class="flex w-[90vw] items-center justify-between  bg-white p-3 px-5 "
                 >
                     <span class="text-[1.5rem]">Cadastrar Clientes</span>
-                    <i class="pi pi-times cursor-pointer hover:text-red-700" @click="openCreateClients = false" />
+                    <i class="pi pi-times cursor-pointer hover:text-red-700" @click="clientes.openCreateClients.value = false" />
                 </div>
 
                 <!-- Abas -->
-                <div class="flex justify-around">
-                    <div v-for="menu in menus" class="">
-                        <span class="flex hover:text-primary cursor-pointer" @click="setAba(menu.value)">{{ menu.label }}</span>
+                <div class="flex justify-around border-b-2 pb-1 ">
+                    <div v-for="menu in clientes.menus.value" class="">
+                        <span 
+                            :class="clientes.aba.value == menu.value ? 'text-primary font-semibold' : ''"
+                            class="flex hover:text-primary cursor-pointer" 
+                            @click="setAba(menu.value)">{{ menu.label }}
+                    </span>
                     </div>
                 </div>
-                
-                <!-- Dados Pessoais -->
-                 <div class="">
-
-                 </div>
+                <DadosBasicos v-if="clientes.aba.value == 'dados'"/>
+   
             </div>
         </template>
     </Dialog>

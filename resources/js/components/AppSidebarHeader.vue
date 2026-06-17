@@ -106,16 +106,26 @@ function logout() {
     background-color: #d4af37 !important;
 }
 
-.p-menu-item-content:focus {
+.p-menu-item-content:focus, 
+.p-menu-item-link:focus {
     background-color: #d4af37 !important;
+}
+
+.p-menu-list:focus {
+    color: #d4af37 !important;
 }
 
 .p-menu-item-icon {
     color:#ffffff !important;
 }
 
-p.menu-separator {
+.p-menu-separator {
     background-color: #d4af37 !important;
 }
+
+.p-menu-item-label {
+    color: #ffffff !important;
+}
+
 
 </style>
