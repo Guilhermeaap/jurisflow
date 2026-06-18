@@ -11,3 +11,14 @@ export const menus = ref([
     { label: 'Informações Jurídicas', value: 'informacao' },
     { label: 'Processos', value: 'processos' },
 ]);
+export const ativo = ref(true)
+export const dadosBasicos = ref({
+    nome: null,
+    tipo_pessoa: null,
+    cpf_cnpj: null,
+    rg_inscricao_estadual: null,
+    data_nascimento_fundacao: null,
+    estado_civil: null,
+    profissao: null,
+    nacionalidade: null
+})
