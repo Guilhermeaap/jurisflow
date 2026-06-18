@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\ClientesController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
@@ -12,7 +13,11 @@ Route::get('/', function(){
 
 Route::middleware(['auth', 'verified'])->group(function () {
     Route::inertia('dashboard', 'Dashboard')->name('dashboard');
-    Route::inertia('clientes', 'Clientes/Index')->name('clientes');
+
+    Route::prefix('clientes')->group(function () {
+        Route::get('/', [ClientesController::class, 'index'])->name('clientes.index');
+
+    });
 });
 
 require __DIR__.'/settings.php';

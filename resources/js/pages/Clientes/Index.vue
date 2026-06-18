@@ -44,7 +44,7 @@ function setAba(aba){
             <div class="w-full bg-white text-black rounded-lg overflow-hidden">
                 <!-- header -->
                 <div
-                    class="flex w-[90vw] items-center justify-between  bg-white p-3 px-5 "
+                    class="flex w-[50vw] items-center justify-between  bg-white p-3 px-5 "
                 >
                     <span class="text-[1.5rem]">Cadastrar Clientes</span>
                     <i class="pi pi-times cursor-pointer hover:text-red-700" @click="clientes.openCreateClients.value = false" />
