@@ -39,6 +39,14 @@ import Select from 'primevue/select';
             />
         </div>
 
+        <!-- RG/Inscrição Estadual -->
+        <div class="p-2 flex flex-col w-full">
+            <span class="text-sm font-semibold text-gray-600">RG/Inscrição Estadual:</span>
+            <InputText 
+                v-model="clientes.dadosBasicos.value.rg_inscricao_estadual"
+            />
+        </div>
+
         <!-- Data de Nascimento -->
         <div class="flex p-2 flex-col">
 

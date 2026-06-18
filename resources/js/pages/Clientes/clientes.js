@@ -22,3 +22,7 @@ export const dadosBasicos = ref({
     profissao: null,
     nacionalidade: null
 })
+
+export function save () {
+    console.log(dadosBasicos.value)
+}
