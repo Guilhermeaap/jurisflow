@@ -5,13 +5,14 @@ import { ref } from "vue";
 export const aba = ref('dados')
 export const openCreateClients = ref(true);
 export const menus = ref([
-    { label: 'Dados Básicos', value: 'dados' },
-    { label: 'Contato', value: 'contato' },
-    { label: 'Endereço', value: 'endereco' },
-    { label: 'Informações Jurídicas', value: 'informacao' },
-    { label: 'Processos', value: 'processos' },
+    { label: 'Dados Básicos', value: 'dados', icon: 'pi pi-user' },
+    { label: 'Contato', value: 'contato', icon: 'pi pi-phone' },
+    { label: 'Endereço', value: 'endereco', icon: 'pi pi-map-marker' },
+    { label: 'Informações Jurídicas', value: 'informacao', icon: 'pi pi-id-card' },
+    { label: 'Processos', value: 'processos', icon: 'pi pi-file' },
 ]);
 export const ativo = ref(true)
+export const currentView = ref('lista')
 export const dadosBasicos = ref({
     nome: null,
     tipo_pessoa: null,
