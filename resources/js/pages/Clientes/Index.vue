@@ -10,7 +10,7 @@ import Novo from './partials/novo.vue';
 <template>
     <Head title="Clientes" />
 
-    <div v-if="clientes.currentView.value == 'lista'" class="min-h-screen p-6 text-secondary transition-all duration-300">
+    <div v-if="clientes.currentView.value == 'lista'" class="min-h-screen p-6  transition-all duration-300">
         <!-- Header -->
         <div class="flex gap-3">
             <div

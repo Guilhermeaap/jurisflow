@@ -85,11 +85,11 @@ function logout() {
                         class="m-2 flex h-10 w-10 justify-center rounded-lg bg-[#1F2937]"
                     >
                         <span
-                            class="flex w-full items-center justify-center text-xl font-extrabold text-[#F4D56B]"
+                            class="flex w-full items-center justify-center text-xl font-extrabold text-[#F4D56B] uppercase"
                             >{{ siglaNome }}</span
                         >
                     </div>
-                    <span class="mr-4">{{ userAbreviado }}</span>
+                    <span class="mr-4 uppercase">{{ userAbreviado }}</span>
                 </div>
             </div>
         </div>

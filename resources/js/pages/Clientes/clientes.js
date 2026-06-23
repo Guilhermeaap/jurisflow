@@ -1,4 +1,5 @@
 // Imports
+import axios from "axios";
 import { ref } from "vue";
 
 // Variables
@@ -23,7 +24,41 @@ export const dadosBasicos = ref({
     profissao: null,
     nacionalidade: null
 })
+export const contato = ref({
+    telefone1: null,
+    telefone2: null,
+    whatsapp: null,
+    email: null,
+})
+export const endereco = ref({
+    cep: null,
+    logradouro: null,
+    numero: null,
+    complemento: null,
+    bairro: null,
+    cidade: null,
+    estado: null
+})
+
+export function setAba (value) {
+    aba.value = value
+}
 
 export function save () {
     console.log(dadosBasicos.value)
+}
+
+export async function buscarCep (cep) {
+    var cepReplace = cep.replace(/\D/g, '');
+        await axios.get(`https://viacep.com.br/ws/${cepReplace}/json/`)
+        .then((response) => {
+          endereco.value.logradouro = response.data.logradouro;
+            endereco.value.bairro = response.data.bairro;
+            endereco.value.cidade = response.data.localidade;
+            endereco.value.estado = response.data.uf;
+            
+        })
+        .catch((error) => {
+          console.error(error);
+        });
 }
