@@ -62,7 +62,8 @@ composer setup
 composer run dev
 ```
 
-A aplicação fica disponível em [http://localhost:8000](http://localhost:8000).
+A aplicação fica disponível em somente em local
+
 
 ## Scripts
 
